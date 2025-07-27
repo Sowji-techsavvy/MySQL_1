@@ -1,0 +1,56 @@
+INSERT INTO student
+(studentname,rollno, age, batch, stipend,city,
+sem_1_marks, sem_2_marks, sem_3_marks, sem_4_marks)
+VALUES
+('Amar', 'Y18PH2502', 25, '2024-2026', 'Pune', 530, 480, 479, 525),
+('Aman', 'Y18PH2501', 24, NULL, 'Pune', 480, 489, 459, 515),
+('Bob', 'Y18PH2503', 22, NULL, 'Mumbai', 560, 490, 529, 525),
+('David', 'Y18PH2505', 24, NULL, 'Kerala', 555, 490, 519, 545),
+('Casey', 'Y18PH2504', 26, NULL, 'Banglore', 535, 460, 549, 545),
+('Vishnu', 'Y18PH2511', 28, NULL, 'Hyderabad', 565, 470, 579, 526),
+('Swaroop', 'Y18PH2509', 26, NULL, 'Hyderabad', 565, 470, 530, 480),
+('Manisha', 'Y18PH2507', 25, NULL, 'Mumbai', 579, 526, 530, 480),
+('Jagdeep', 'Y18PH2506', 23, NULL, 'Delhi', 555, 490, 470, 530),
+('Venu', 'Y18PH2510', 26, NULL, 'Delhi', 489, 459, 480, 479),
+('Samar', 'Y18PH2508', 22, NULL, 'Banglore', 489, 459, 472, 458);
+
+SELECT * FROM student;
+
+
+CREATE TABLE employee(
+Employee_name VARCHAR(50),
+employeeID VARCHAR(10), 
+age INT, 
+Qualification VARCHAR(10), 
+Subject VARCHAR(10),
+Salary INT, 
+City VARCHAR(50),
+);
+
+INSERT INTO employee
+(Employee_name,employeeID,
+Age, Qualification ,Subject ,Salary, City)
+VALUES
+('Suma', 'Y18EMP01', 35, 'MSc. Chemistry', 'Chemistry', 48000, 'Pune'),
+('Rajiv', 'Y18EMP02', 42, 'MCom', 'Accounts', 51000, 'Mumbai'),
+('Leena', 'Y18EMP03', 29, 'MA English', 'English Literature', 46000, 'Delhi'),
+('Karthik', 'Y18EMP04', 31, 'MSc. Mathematics', 'Algebra', 47500, 'Bangalore'),
+('Deepa', 'Y18EMP05', 33, 'MBA', 'Admin Operations', 52500, 'Hyderabad'),
+('Farhan', 'Y18EMP06', 27, 'BEd', 'Physics', 44000, 'Kochi'),
+('Sneha', 'Y18EMP07', 30, 'PhD Physics', 'Quantum Mechanics', 58000, 'Chennai'),
+('Vivek', 'Y18EMP08', 36, 'MCA', 'Computer Applications', 53000, 'Mumbai'),
+('Neha', 'Y18EMP09', 28, 'MA Psychology', 'Educational Psychology', 46500, 'Pune'),
+('Anil', 'Y18EMP10', 40, 'MBA', 'Finance', 55000, 'Hyderabad'),
+('Priya', 'Y18EMP11', 25, 'MSc. Botany', 'Botany', 43500, 'Coimbatore'),
+('Rakesh', 'Y18EMP12', 37, 'MTech', 'Software Engineering', 56000, 'Bangalore'),
+('Divya', 'Y18EMP13', 32, 'MSc. Zoology', 'Zoology', 45000, 'Delhi'),
+('Harish', 'Y18EMP14', 45, 'MEd', 'Educational Admin', 58000, 'Kolkata'),
+('Meena', 'Y18EMP15', 38, 'MCom', 'Taxation', 50000, 'Mumbai'),
+('Srinivas', 'Y18EMP16', 41, 'MSc. Physics', 'Thermodynamics', 54000, 'Chennai'),
+('Anusha', 'Y18EMP17', 26, 'MBA', 'Student Affairs', 42000, 'Hyderabad'),
+('Joel', 'Y18EMP18', 39, 'MA Sociology', 'Sociology', 47000, 'Bangalore'),
+('Aarti', 'Y18EMP19', 34, 'PhD Chemistry', 'Organic Chemistry', 59500, 'Delhi'),
+('Rohan', 'Y18EMP20', 27, 'MCA', 'Web Development', 50000, 'Pune');
+
+SELECT * FROM employee;
+
