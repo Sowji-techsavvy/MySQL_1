@@ -1,0 +1,25 @@
+CREATE DATABASE college;
+USE college;
+CREATE TABLE student(
+studentname VARCHAR(50), 
+rollno VARCHAR(10) PRIMARY KEY, 
+age INT NOT NULL, 
+batch VARCHAR(10), 
+stipend INT default 12400,
+city VARCHAR(10),
+sem_1_marks INT,
+sem_2_marks INT, 
+sem_3_marks INT, 
+sem_4_marks INT
+);
+
+
+CREATE TABLE employee(
+Employee_name VARCHAR(50),
+employeeID VARCHAR(10), 
+age INT, 
+Qualification VARCHAR(10), 
+Subject VARCHAR(10),
+Salary INT, 
+City VARCHAR(50),
+);
