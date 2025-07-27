@@ -1,0 +1,143 @@
+Section 1: SELECT
+1. Find all employees older than 35.
+SELECT employee_name 
+FROM employee
+WHERE age>35;
+ 
+2. Retrieve student names and total marks in all semesters.
+
+SELECT studentname, 
+(sem_1_marks+sem_2_marks+sem_3_marks+sem_4_marks) AS Total_Marks
+FROM student;
+
+3.	Get all employee names who work in Mumbai.
+SELECT employee_name
+FROM employee
+WHERE city = 'Mumbai';
+________________________________________
+Section 2: Aggregation-Based Questions
+4.	What is the average stipend of all students?
+SELECT AVG(stipend)
+FROM student;
+ 
+5.	Find the highest salary among employees.
+SELECT MAX(salary) AS Highest salary
+FROM employee;
+
+6.	Get the average marks per semester.
+SELECT 
+AVG(sem_1_marks),
+AVG(sem_2_marks),
+AVG(sem_3_marks),
+AVG(sem_4_marks)
+FROM student
+GROUP BY ‘%sem%’; 
+
+7.	Get the average marks per semester of each student.
+SELECT studentname,
+AVG(sem_1_marks),
+AVG(sem_2_marks),
+AVG(sem_3_marks),
+AVG(sem_4_marks)
+FROM student
+Group by studentname;
+
+8.	Find the number of employees in each city.
+SELECT e.city, COUNT(e.employee_name)AS number_of_employees
+FROM employee e
+Group BY e.city;
+______________________________________
+Section 3: JOINs & Relational Thinking
+9.	Find matching students and employees in the same city.
+SELECT 
+    s.city,
+    COUNT(DISTINCT s.studentname) AS number_of_students,
+    COUNT(DISTINCT e.employee_name) AS number_of_employees
+FROM student s
+INNER JOIN employee e 
+ON s.city = e.city
+GROUP BY s.city;
+________________________________________
+Section 4: Advanced Interview-Style SQL Questions
+10.	Find students whose average marks across all semesters is above 500.
+SELECT studentname,
+    AVG(sem1_marks) AS avg_sem1,
+    AVG(sem2_marks) AS avg_sem2,
+    AVG(sem3_marks) AS avg_sem3,
+    AVG(sem4_marks) AS avg_sem4
+FROM student
+Group By studentname
+Having 
+avg_sem1 >500;
+
+11.	Find employees with the second-highest salary.
+SELECT employee_name, salary
+FROM employee
+WHERE salary = (
+    SELECT MAX(salary)
+    FROM employee
+    WHERE salary < (
+        SELECT MAX(salary)
+        FROM employee)
+);
+ 
+12.	List the top 3 students by total marks.
+
+SELECT studentname, SUM(Sem1_Marks + Sem2_Marks + Sem3_Marks + Sem4_Marks) AS Total_marks
+FROM student
+GROUP BY studentname
+LIMIT 3;
+
+13.	Which departments (SubjectsHandled) have more than one employee?
+SELECT qualification
+FROM employee
+GROUP BY qualification
+HAVING COUNT(employee_name)>1;
+
+or
+
+SELECT qualification, COUNT(*) AS No_of_employees
+FROM employee
+GROUP BY qualification	
+HAVING COUNT(*) > 1;
+
+
+14.	Which students have the same city as any employee qualified in MBA?
+
+SELECT DISTINCT s.StudentName
+FROM student s
+JOIN employee e 
+ON s.City = e.City
+WHERE e.Qualification LIKE '%MBA%';
+________________________________________
+Section 5: Data Manipulation & Update Tasks
+15.	Update all students' stipend to 15000 where city is 'Mumbai'.
+
+UPDATE student
+SER stipend=15000
+WHERE city= ‘Mumbai’;
+
+16.	Insert a new employee into the table.
+
+INSERT INTO employee 
+(Employee_Name, EmployeeID, Age, Qualification, SubjectsHandled, Salary, City)
+VALUES ('Nikita', 'Y18EMP21', 30, 'MSc Physics', 'Optics', 49000, 'Hyderabad');
+
+17.	Delete all students who scored less than 400 in any semester.
+
+DELETE FROM student
+WHERE
+Sem_1_Marks < 400 
+OR Sem2_Marks < 400 
+OR Sem3_Marks < 400 
+OR Sem4_Marks < 400
+;
+
+18.	Delete all students who scored less than 450 in any semester.
+DELETE FROM student
+WHERE
+Sem_1_marks<450,
+OR Sem_2_marks<450,
+OR Sem_3_marks<450,
+OR Sem_4_marks<450
+;
